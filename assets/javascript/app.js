@@ -5,12 +5,36 @@
 */
 $(document).ready(function(){
     var q1 = {
-        question: "How long is the human DNA?",
-        correct: "2 meters",
-        wrong1: "2 cm",
-        wrong2: "5 mm",
-        wrong3: "500cm",
-    }
+                question: "How long is the human DNA?",
+                correct: "2 meters",
+                wrong1: "2 cm",
+                wrong2: "5 mm",
+                wrong3: "500cm",
+            }
+    var questions = [
+        {
+            question: "Who invented Calculus?",
+            correct: "Albert Einstein",
+            wrong1: "Stephen Hawking",
+            wrong2: "Thomas Edison",
+            wrong3: "Sir Issac Newton",
+        },
+        {
+            question: "What's the largest organ in the human body?",
+            correct: "heart",
+            wrong2: "skin",
+            wrong3: "lungs",
+        },
+        {
+            question: "How long is the human DNA?",
+            correct: "2 meters",
+            wrong1: "2 cm",
+            wrong2: "5 mm",
+            wrong3: "500cm",
+        }
+    ]
+    console.log(questions[0].question);
 })
+
 
 
