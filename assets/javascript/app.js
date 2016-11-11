@@ -35,23 +35,50 @@ $(document).ready(function(){
         }
     ]
     console.log(questions[3].question);
+    var time = 10;
+    var interval;
     var correct;
     var incorrect;
     console.log(questions[0].question);
     for(var i = 0; i < questions.length; i++){
-        //display question
+        $("#question").html("<h2>"+questions[i].question+ "</h2");
+        $("#answer1").text(questions[i].correct);
+        $("#answer2").text(questions[i].wrong1);
+        $("#answer3").text(questions[i].wrong2);
+        $("#answer4").text(questions[i].wrong3);
         //run timer
+        setTimeout(next, 1000*10);
+        interval = setInterval(countDown,1000);
+        console.log(time)
         //run questionCheck function
+        answerClicks;
+        // questionCheck(i)
+    }
+    //function for onclick of answers
+    var answerClicks = function(){
+        $('#answer1').on('click',function(){
+            answer = this;
+            functionCheck(i);
+        })
     }
     //once question displayed, checks questions or if time runs out
-    function questionCheck(question) {
+    var functionCheck = function(question) {
         if(answer === questions[question].correct){
             alert("Correct!");
             correct++;
             //run timer for few seconds, then run function for next question
-
+            setTimer()
         }
     }
+    var countDown = function(){
+        time--;
+        $('#timer').text(time);
+    }
+    console.log(countDown)
+    var next = function(){
+        return;
+    }
+
 })
 
 
