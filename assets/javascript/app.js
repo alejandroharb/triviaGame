@@ -33,7 +33,23 @@ $(document).ready(function(){
             wrong3: "500cm",
         }
     ]
+    var correct;
+    var incorrect;
     console.log(questions[0].question);
+    for(var i = 0; i < questions.length; i++){
+        //display question
+        //run timer
+        //run questionCheck function
+    }
+    //once question displayed, checks questions or if time runs out
+    function questionCheck(question) {
+        if(answer === questions[question].correct){
+            alert("Correct!");
+            correct++;
+            //run timer for few seconds, then run function for next question
+
+        }
+    }
 })
 
 
