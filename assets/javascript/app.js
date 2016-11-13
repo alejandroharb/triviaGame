@@ -33,14 +33,16 @@ $(document).ready(function(){
             wrong2: "1 million",
             wrong3: "300 trillion"
         }
-    ]
+    ];
     console.log(questions[3].question);
     var time = 10;
     var interval;
     var correct;
     var incorrect;
     console.log(questions[0].question);
-    for(var i = 0; i < questions.length; i++){
+    //this is endless loop right now: fix
+    do{
+        var i = 0
         $("#question").html("<h2>"+questions[i].question+ "</h2");
         $("#answer1").text(questions[i].correct);
         $("#answer2").text(questions[i].wrong1);
@@ -51,16 +53,22 @@ $(document).ready(function(){
         interval = setInterval(countDown,1000);
         console.log(time)
         //run questionCheck function
-        answerClicks;
-        // questionCheck(i)
-    }
+        answerClicks();
+        i++;
+    } while(i < questions.length)
     //function for onclick of answers
-    var answerClicks = function(){
-        $('#answer1').on('click',function(){
-            answer = this;
+    function answerClicks(id){
+        $(id).on('click',function(){
+            answer = $(this).text();
+            console.log(answer);
             functionCheck(i);
         })
     }
+    answerClicks('#answer1');
+    answerClicks('#answer2');
+    answerClicks('#answer3');
+    answerClicks('#answer4');
+
     //once question displayed, checks questions or if time runs out
     var functionCheck = function(question) {
         if(answer === questions[question].correct){
