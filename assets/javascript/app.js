@@ -34,17 +34,15 @@ $(document).ready(function(){
             wrong3: "300 trillion"
         }
     ];
-    var i = 0;
+    console.log(questions[3].question);
     var time = 10;
     var interval;
-    var correct = 0;
-    var incorrect = 0;
-
-    userChoice('#answer1',i);
-    userChoice('#answer2',i);
-    userChoice('#answer3',i);
-    userChoice('#answer4',i);
-    function questionDisplay(i) {
+    var correct;
+    var incorrect;
+    console.log(questions[0].question);
+    //this is endless loop right now: fix
+    do{
+        var i = 0
         $("#question").html("<h2>"+questions[i].question+ "</h2");
         $("#answer1").text(questions[i].correct);
         $("#answer2").text(questions[i].wrong1);
@@ -52,28 +50,25 @@ $(document).ready(function(){
         $("#answer4").text(questions[i].wrong3);
         //run timer
         setTimeout(next, 1000*10);
-        setInterval(countDown,1000);
-    };
-    questionDisplay(i);
-    console.log("global i: "+ i)    
-    
-    //detects user answers
-    function userChoice(id,i){
+        interval = setInterval(countDown,1000);
+        console.log(time)
+        //run questionCheck function
+        answerClicks();
+        i++;
+    } while(i < questions.length)
+    //function for onclick of answers
+    function answerClicks(id){
         $(id).on('click',function(){
             answer = $(this).text();
             console.log(answer);
-            if(answer == questions[i].correct){
-                alert("Correct!");
-                correct++;
-                //run timer for few seconds, then run function for next question
-                setTimeout(next, 3000);
-            } else if(answer == questions[i].wrong1 || answer == questions[question].wrong2 || answer == questions[question].wrong3){
-                alert("Wrong!");
-                incorrect++;
-                setTimeout(next, 3000);
-            }
+            functionCheck(i);
         })
-    };
+    }
+    answerClicks('#answer1');
+    answerClicks('#answer2');
+    answerClicks('#answer3');
+    answerClicks('#answer4');
+
     //once question displayed, checks questions or if time runs out
     var functionCheck = function(question) {
         
