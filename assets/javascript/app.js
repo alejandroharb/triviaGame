@@ -3,7 +3,6 @@
     2. Who invented Calculus? Issac Newton
     3. What's the largest organ in the human body? Skin
 */
-//to do: add objects to question, like time object, and..
 $(document).ready(function(){
     var questions = [
         {
@@ -94,7 +93,7 @@ $(document).ready(function(){
     userAnswer('#answer2');
     userAnswer('#answer3');
     userAnswer('#answer4');
-    
+
     //once question displayed, checks questions or if time runs out
 
     var countDown = function(){
