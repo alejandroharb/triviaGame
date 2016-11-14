@@ -63,6 +63,7 @@ $(document).ready(function(){
 
     //function for onclick of answers
     function userAnswer(id){
+
         $(id).on('click',function(){
             //displays questions depending on which question user is on.
             displayQuestions(i);
@@ -71,16 +72,20 @@ $(document).ready(function(){
             answer = $(this).text();
             //checks answers if right or wrong
             if(answer == questions[i].correct){
-                alert("Correct!");
+                console.log("answer correct");
+                clearInterval(count);
                 correct++;
                 i++
-                displayQuestions(i);
+                var nextQuestion = setTimeout(displayQuestions(i),3000);
+                console.log("correct after click: " + correct);
             }
             if((answer == questions[i].wrong1) || (answer == questions[i].wrong2) || (answer == questions[i].wrong3)){
-                alert("incorrect!");
+                console.log("answer incorrect");
+                clearInterval(count);
                 incorrect++;
                 i++
-                displayQuestions(i);
+                var nextQuestion = setTimeout(displayQuestions(i),3000);;
+                console.log("incorrect after click: " + incorrect);
             }
 
         })
@@ -89,7 +94,7 @@ $(document).ready(function(){
     userAnswer('#answer2');
     userAnswer('#answer3');
     userAnswer('#answer4');
-    console.log("after click: "+i);
+    
     //once question displayed, checks questions or if time runs out
 
     var countDown = function(){
