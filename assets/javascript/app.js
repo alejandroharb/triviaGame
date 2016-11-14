@@ -42,67 +42,82 @@ $(document).ready(function(){
     var correct = 0;
     var incorrect = 0;
     var i = 0;
-    function startGame(startIndex){
+    var count;
+    var nextQuestion;
+    userAnswer('#answer1');
+    userAnswer('#answer2');
+    userAnswer('#answer3');
+    userAnswer('#answer4');
+    //display first question to begin game. no timer
+    function startGame(i){
         $("#question").html("<h2>"+questions[i].question+ "</h2");
         $("#answer1").text(questions[i].correct);
         $("#answer2").text(questions[i].wrong1);
         $("#answer3").text(questions[i].wrong2);
         $("#answer4").text(questions[i].wrong3);
         $("#answer1").on('click',function(){
-            displayQuestions(0);
         })
     }
     startGame(0);
+
     function displayQuestions(i){
+        //to stop previous question's timer
+        stopCounter();
         $("#question").html("<h2>"+questions[i].question+ "</h2");
         $("#answer1").text(questions[i].correct);
         $("#answer2").text(questions[i].wrong1);
         $("#answer3").text(questions[i].wrong2);
         $("#answer4").text(questions[i].wrong3);
+        //run timer for current question
+        // counter(); (checking to see if eliminating this counter prevents double counters)
     }
 
     //function for onclick of answers
     function userAnswer(id){
 
         $(id).on('click',function(){
-            //displays questions depending on which question user is on.
-            displayQuestions(i);
-            //run timer
-            var count = setInterval(countDown,1000);
             answer = $(this).text();
             //checks answers if right or wrong
             if(answer == questions[i].correct){
                 console.log("answer correct");
-                clearInterval(count);
+                stopCounter();
                 correct++;
                 i++
-                var nextQuestion = setTimeout(displayQuestions(i),3000);
+                nextQuestion();
                 console.log("correct after click: " + correct);
             }
             if((answer == questions[i].wrong1) || (answer == questions[i].wrong2) || (answer == questions[i].wrong3)){
                 console.log("answer incorrect");
-                clearInterval(count);
+                stopCounter();
                 incorrect++;
                 i++
-                var nextQuestion = setTimeout(displayQuestions(i),3000);;
+                nextQuestion();
                 console.log("incorrect after click: " + incorrect);
             }
-
         })
+        ;
     }
-    userAnswer('#answer1');
-    userAnswer('#answer2');
-    userAnswer('#answer3');
-    userAnswer('#answer4');
+    function counter(){
+        var count = setInterval(countDown,1000);
+    }
+    function stopCounter(){
+        clearInterval(count);
+    }
+    function nextQuestion(){
+        var nextQuestion = setTimeout(function(){displayQuestions(i)},3000);
+    }
+
     
     //once question displayed, checks questions or if time runs out
 
     var countDown = function(){
+        console.log(i);
         var time = questions[i].time--;
         $('#timer').text(time);
-        if(questions[i].time == 0){
+        if(time == 0){
             i++
-            displayQuestions(i);
+            stopCounter();
+            nextQuestion();
         }
     }
 
