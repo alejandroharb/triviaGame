@@ -3,3 +3,13 @@
     margin-top: 30px;
     margin-left: 20px;
 }
+.btn-custom{
+    background-color:#1e88e5;
+    color:#fff;
+}
+.backgroundGreen{
+    background-color:#39a90d;
+}
+.backgroundRed{
+    background-color:red;
+}
