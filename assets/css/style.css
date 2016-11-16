@@ -1,7 +1,24 @@
+body{
+	background-image: url('../img/science.jpeg');
+	background-repeat: no-repeat;
+	background-size:cover;
+	background-position: 50% 0%;
+}
+.triviaQuestions{
+	text-align: center;
+	background-color:rgba(255, 255, 255, 0.69);
+	border-radius: 10px;
+	padding-bottom:50px;
+}
 .triviaQuestions button{
     display: block;
     margin-top: 30px;
-    margin-left: 20px;
+    margin-right:auto;
+    margin-left: auto;
+}
+#timer{
+	font-size:50px;
+	font-weight: bold;
 }
 .btn-custom{
     background-color:#1e88e5;
@@ -13,3 +30,53 @@
 .backgroundRed{
     background-color:red;
 }
+
+.noShow{
+	display:none;
+}
+.score{
+	background-color:rgba(255, 255, 255, 0.69);
+	border-radius: 10px;
+	display: block;
+	margin:20px auto;
+	padding-top:30px;
+	padding-bottom:30px;
+}
+h1{
+	font-size: 80px;
+    color: #f4511e;
+    font-weight: bold;
+    font-family: cursive;
+    margin-bottom:110px;
+}
+h5{
+	font-size:32px;
+	text-align: center;
+	margin-top:50px;
+}
+h6{
+	font-size: 100px;
+    padding-top: 45px;
+    text-align: center;
+}
+.correctScore{
+	margin:0 auto;
+	border-radius: 50%;
+	width:200px;
+	height: 200px;
+	background-color: #5cb85c;
+	color:#fff;
+	font-size:40px;
+}
+.wrongScore{
+	margin:0 auto;
+	border-radius: 50%;
+	width:200px;
+	height: 200px;
+	background-color: #f44336;
+	color:#fff;
+	font-size: 40px;
+}
+/*#finalScore button{
+	margin-bottom: 30px;
+}*/
