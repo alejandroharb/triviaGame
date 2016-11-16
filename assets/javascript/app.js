@@ -62,7 +62,7 @@ $(document).ready(function(){
                 2: "brain",
                 3:"tongue",
                 4:"liver"
-            } 
+            }
         },
         {
             question: "How many planets in the Universe could potentially hold life?",
@@ -73,7 +73,37 @@ $(document).ready(function(){
                 3:"1",
                 4: "60 billion"
             }
-        }  
+        },
+        {
+            question: "What is light?",
+            answer: 3,
+            choices:{
+                1: "A particle",
+                2: "A wave",
+                3: "Both a wave and particle",
+                4: "Atom",
+            }
+        },
+        {
+            question: "Stranded on an island, what will kill you first?",
+            answer: 3,
+            choices:{
+                1: "Not eating",
+                2: "Not drinking water",
+                3: "Not sleeping",
+                4: "No shelter",
+            }
+        },
+        {
+            question: "Stranded on an island, what will kill you last?",
+            answer: 1,
+            choices:{
+                1: "Not eating",
+                2: "Not drinking water",
+                3: "Not sleeping",
+                4: "No shelter",
+            }
+        }
     ];
     var next;
     var timer;
@@ -178,7 +208,7 @@ $(document).ready(function(){
         $(".triviaQuestions").addClass("noShow");
         $('#correct').text(correct);
         $('#incorrect').text(incorrect);
-        $('#finalScore').removeClass("noShow");    
+        $('#finalScore').removeClass("noShow");
     }
     //click listener for restarting game
     function replay(){
